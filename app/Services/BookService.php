@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Traits\ConsumesExteralService;
+use App\Traits\ConsumesExternalService;
 
 class BookService 
 {
-    use ConsumesExteralService;
+    use ConsumesExternalService;
 
     public $baseUri;
 
