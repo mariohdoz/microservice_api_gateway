@@ -4,7 +4,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Application Routes    
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -35,4 +35,23 @@ $router->group(['middleware' => 'client.credentials'], function($router){
     $router->patch('/books/{book}', 'BookController@update');
     $router->delete('/books/{book}', 'BookController@destroy');
 
+    //-----------------------------------------------//
+    //- Rutas asociadas a la el servicio de usuario -//
+    //-----------------------------------------------//
+    $router->get('/users', 'UserController@index');
+    $router->post('/users', 'UserController@store');
+    $router->get('/users/{users}', 'UserController@show');
+    $router->put('/users/{users}', 'UserController@update');
+    $router->patch('/users/{users}', 'UserController@update');
+    $router->delete('/users/{users}', 'UserController@destroy');
+
 });
+
+//----------------------------------------------------//
+//- Rutas Protegidas por las credenciales de usuario -//
+//----------------------------------------------------//
+$router->group(['middleware' => 'auth:api'], function($router){
+    $router->get('/users/me', 'UserController@me');
+});
+
+
