@@ -7,12 +7,21 @@ use App\Traits\ConsumesExternalService;
 class BookService 
 {
     use ConsumesExternalService;
-
+    
+    /**
+    * The base uri to be used to consume the authors service
+    */
     public $baseUri;
+
+    /**
+    * The secret to be used to consume the authors service
+    */
+    public $secret;
 
     public function __construct()
     {
         $this->baseUri = config('services.books.base_uri');
+        $this->secret = config('services.books.secret');
     }
 
 

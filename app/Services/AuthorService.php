@@ -8,11 +8,20 @@ class AuthorService
 {
     use ConsumesExternalService;
 
+    /**
+     * The base uri to be used to consume the authors service
+     */
     public $baseUri;
+
+    /**
+     * The secret to be used to consume the authors service
+     */
+    public $secret;
 
     public function __construct()
     {
         $this->baseUri = config('services.authors.base_uri');
+        $this->secret = config('services.authors.secret');
     }
 
     /** 
